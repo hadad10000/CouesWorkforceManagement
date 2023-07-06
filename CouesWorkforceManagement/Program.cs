@@ -12,9 +12,15 @@ builder.Services.AddSwaggerGen();
 
 // Add the database context
 builder.Services.AddDbContext<WorkforceDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
+
+System.Net.ServicePointManager.ServerCertificateValidationCallback +=
+    (sender, certificate, chain, sslPolicyErrors) => true;
 
 var app = builder.Build();
+
+// Disable SSL verification (for development/testing purposes)
+AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

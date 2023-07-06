@@ -17,7 +17,7 @@ namespace CouesWorkforceManagement.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configure table names
-            modelBuilder.Entity<Employee>().ToTable("Employees");
+            modelBuilder.Entity<Employee>().ToTable("Employee");
             modelBuilder.Entity<WorkingHours>().ToTable("WorkingHours");
             modelBuilder.Entity<Salary>().ToTable("Salaries");
 

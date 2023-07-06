@@ -41,13 +41,13 @@ namespace CouesWorkforceManagement.Controllers
         {
             _context.Employees.Add(employee);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, employee);
+            return CreatedAtAction(nameof(GetEmployee), new { id = employee.id }, employee);
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateEmployee(int id, Employee employee)
         {
-            if (id != employee.Id)
+            if (id != employee.id)
             {
                 return BadRequest();
             }
